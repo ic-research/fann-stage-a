@@ -38,4 +38,9 @@ Files: protocol/README.md; protocol/01-question.md; protocol/02-system.md; proto
 
 ## Amendments after the freeze
 
-None.
+Date: 11 Nov 2026
+Protocol version after this amendment: v0.4.1
+What changed: Added one extra experiment, X1, for W3 only. X1 is a small model for the BANKING77 task, built on the distil labs platform. It is scored as an extra always-light comparison on the same W3 test stream, with the same metrics and the same cost accounting as B4. X1 is not the W3 light path. It does not replace the fine-tuned DistilBERT or any baseline. It does not count toward Gate 1 or Gate 2.
+X1 follows these rules. (1) X1 trains only on the W3 model-training split. It never sees the fit split, the risk-control split, or the test stream. (2) X1 is built once. Record the base model, the platform version and date, every setting that was chosen, and the number of builds. Fix them before any code reads the W3 test stream. Do not choose any setting with the test stream. (3) Record the name, version, and weight hash of X1 in the manifest before any code reads the W3 test stream, as 04-models.md requires for every model. If the weights cannot be downloaded, score X1 through the platform's interface on the W3 test stream, report quality only, and say that its cost cannot be compared and that no weight hash is available. (4) Run X1 as an always-light policy on the risk-control split. If its one-sided upper bound on disagreement with B0 is at most alpha, report that X1 meets the error bound on its own. This does not change the W3 light path. (5) Report X1 in every case, including if it matches or beats the system. (6) distil labs provided platform credits, $200 at sign-up. Name the credits in the report. distil labs has no say in the design, the analysis, or whether X1 is reported.
+Why it changed: distil labs offered credits to build a small model for this task. The check shows how strong a small W3 model can get, so a reader can judge whether B4, the always-light baseline, is a weak one. The experiment is added before any run on the W3 test stream, and X1 is reported whichever way it comes out.
+Files: protocol/amendments.md; protocol/README.md
