@@ -63,3 +63,10 @@ Quality bar, on the risk-control split of 2,503 queries. The reference model sco
 Always-light check. The light path and the reference model disagree on 145 of 2,503 queries, a rate of 0.0579. The one-sided Clopper-Pearson upper bound at significance 0.05 is 0.0662. This is above `α = 0.01`, so the light path is not too strong and stays as the W3 light path.
 Why it changed: 10-open-items.md requires these values as dated amendments, from calibration data only, before any code reads the W3 test stream. The test stream has not been read. The code that ran has no path to it. The earlier failed run and its hashes are in the v0.4.2 amendment.
 Files: protocol/amendments.md; protocol/README.md
+
+Date: 14 Nov 2026
+Protocol version after this amendment: v0.4.4
+What changed: Recorded the release of the two W3 fine-tuned models, as the Release rule in 04-models.md requires. No rule changes. Both models are public on Hugging Face under `ic-research`, each with a model card that gives the recipe, the base revision, the split seed, and the weight hash. Reference model, BERT-base: https://huggingface.co/ic-research/banking77-bert-base-w3. Light path, DistilBERT: https://huggingface.co/ic-research/banking77-distilbert-w3.
+The released `model.safetensors` files were downloaded again from Hugging Face on 14 Nov 2026 and hashed. The hashes equal the hashes in the v0.4.3 amendment: reference `4b97d363ba36242a37474cc19ca9adfef355c989a51489000a0e42182e603501`, light path `8d3966629d225d0564853ff45d21c5d7596fe9570989a3a7053250e8bd856e67`. Each repository also holds `manifest.json`, which records the recipe, the split hash, the epoch losses, and the package versions. The fine-tuning code is in the `quotient` repository, `recipes/finetune/banking77`, at commit `085f235` or later.
+Why it changed: 04-models.md says to release the two fine-tuned W3 models with the recipe, so that anyone can check the hashes and repeat the run. The release is recorded here because the frozen files are not edited in place.
+Files: protocol/amendments.md; protocol/README.md
