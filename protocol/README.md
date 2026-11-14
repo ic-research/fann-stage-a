@@ -1,12 +1,12 @@
 # Stage A protocol
 
-Version: 0.4.1.
+Version: 0.4.2.
 
 Status: frozen.
 
 Freeze date: 5 Nov 2026. The freeze timestamp is the date and time of the commit that added this text.
 
-Amendments after the freeze: one, X1 (11 Nov 2026). The changes before the freeze are in the change log in [amendments.md](amendments.md).
+Amendments after the freeze: two, X1 (11 Nov 2026) and the W3 recipe (14 Nov 2026). The changes before the freeze are in the change log in [amendments.md](amendments.md).
 
 This folder is the stage A protocol. The protocol gives the rules for the first test. Read the files in the order below.
 
